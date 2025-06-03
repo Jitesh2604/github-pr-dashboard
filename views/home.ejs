@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Home</title></head>
+    <body>
+        <h1>Github OAuth PR Tracker</h1>
+        <% if (user) { %>
+            <p>Welcome, <%= user.username %>!</p>
+            <a href="/profile">View PRs</a> | <a href="/logout">Logout</a>
+        <% } else {%>
+            <a href="/auth/github">Login with Github</a>
+        <% } %>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>Welcome, <%= user.username %>!</h1>
+
+    <h2>🔓 Open PRs</h2>
+    <ul>
+      <% openPRs.forEach(pr => { %>
+      <li>
+        <a href="<%= pr.url %>" target="_blank">
+          <%= pr.repo %>: <%= pr.title %>
+        </a>
+        (Created at: <%= pr.created_at %>)
+      </li>
+      <% }); %>
+    </ul>
+
+    <h2>✅ Merged PRs</h2>
+    <ul>
+      <% mergedPRs.forEach(pr => { %>
+      <li>
+        <a href="<%= pr.url %>" target="_blank">
+          <%= pr.repo %>: <%= pr.title %>
+        </a>
+        <br />
+        Created: <%= pr.created_at %> | Merged: <%= pr.merged_at %>
+      </li>
+      <% }); %>
+    </ul>
+
+    <h2>❌ Closed (Not Merged) PRs</h2>
+    <ul>
+      <% closedPRs.forEach(pr => { %>
+      <li>
+        <a href="<%= pr.url %>" target="_blank">
+          <%= pr.repo %>: <%= pr.title %>
+        </a>
+        (Created at: <%= pr.created_at %>)
+      </li>
+      <% }); %>
+    </ul>
+
+    <a href="/logout">🔒 Logout</a>
+  </body>
+</html>
